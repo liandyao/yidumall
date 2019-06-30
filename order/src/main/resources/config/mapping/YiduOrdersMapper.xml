@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yidu.order.mapper.YiduOrdersMapper" >
+  <resultMap id="BaseResultMap" type="com.yidu.order.entity.YiduOrders" >
+    <id column="orders_id" property="ordersId" jdbcType="VARCHAR" />
+    <result column="user_id" property="userId" jdbcType="VARCHAR" />
+    <result column="address_id" property="addressId" jdbcType="VARCHAR" />
+    <result column="orders_code" property="ordersCode" jdbcType="VARCHAR" />
+    <result column="orders_number" property="ordersNumber" jdbcType="INTEGER" />
+    <result column="orders_date" property="ordersDate" jdbcType="VARCHAR" />
+    <result column="orders_sumMoney" property="ordersSummoney" jdbcType="DECIMAL" />
+    <result column="orders_state" property="ordersState" jdbcType="INTEGER" />
+    <result column="isva" property="isva" jdbcType="INTEGER" />
+    <result column="optime" property="optime" jdbcType="TIMESTAMP" />
+    <result column="oper" property="oper" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="pro_id" property="proId" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    orders_id, user_id, address_id, orders_code, orders_number, orders_date, orders_sumMoney, 
+    orders_state, isva, optime, oper, sort, pro_id
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from yidu_orders
+    where orders_id = #{ordersId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from yidu_orders
+    where orders_id = #{ordersId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.yidu.order.entity.YiduOrders" >
+    insert into yidu_orders (orders_id, user_id, address_id, 
+      orders_code, orders_number, orders_date, 
+      orders_sumMoney, orders_state, isva, 
+      optime, oper, sort, 
+      pro_id)
+    values (#{ordersId,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{addressId,jdbcType=VARCHAR}, 
+      #{ordersCode,jdbcType=VARCHAR}, #{ordersNumber,jdbcType=INTEGER}, #{ordersDate,jdbcType=VARCHAR}, 
+      #{ordersSummoney,jdbcType=DECIMAL}, #{ordersState,jdbcType=INTEGER}, #{isva,jdbcType=INTEGER}, 
+      #{optime,jdbcType=TIMESTAMP}, #{oper,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, 
+      #{proId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yidu.order.entity.YiduOrders" >
+    insert into yidu_orders
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="ordersId != null" >
+        orders_id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="addressId != null" >
+        address_id,
+      </if>
+      <if test="ordersCode != null" >
+        orders_code,
+      </if>
+      <if test="ordersNumber != null" >
+        orders_number,
+      </if>
+      <if test="ordersDate != null" >
+        orders_date,
+      </if>
+      <if test="ordersSummoney != null" >
+        orders_sumMoney,
+      </if>
+      <if test="ordersState != null" >
+        orders_state,
+      </if>
+      <if test="isva != null" >
+        isva,
+      </if>
+      <if test="optime != null" >
+        optime,
+      </if>
+      <if test="oper != null" >
+        oper,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="proId != null" >
+        pro_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="ordersId != null" >
+        #{ordersId,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="addressId != null" >
+        #{addressId,jdbcType=VARCHAR},
+      </if>
+      <if test="ordersCode != null" >
+        #{ordersCode,jdbcType=VARCHAR},
+      </if>
+      <if test="ordersNumber != null" >
+        #{ordersNumber,jdbcType=INTEGER},
+      </if>
+      <if test="ordersDate != null" >
+        #{ordersDate,jdbcType=VARCHAR},
+      </if>
+      <if test="ordersSummoney != null" >
+        #{ordersSummoney,jdbcType=DECIMAL},
+      </if>
+      <if test="ordersState != null" >
+        #{ordersState,jdbcType=INTEGER},
+      </if>
+      <if test="isva != null" >
+        #{isva,jdbcType=INTEGER},
+      </if>
+      <if test="optime != null" >
+        #{optime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oper != null" >
+        #{oper,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="proId != null" >
+        #{proId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yidu.order.entity.YiduOrders" >
+    update yidu_orders
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="addressId != null" >
+        address_id = #{addressId,jdbcType=VARCHAR},
+      </if>
+      <if test="ordersCode != null" >
+        orders_code = #{ordersCode,jdbcType=VARCHAR},
+      </if>
+      <if test="ordersNumber != null" >
+        orders_number = #{ordersNumber,jdbcType=INTEGER},
+      </if>
+      <if test="ordersDate != null" >
+        orders_date = #{ordersDate,jdbcType=VARCHAR},
+      </if>
+      <if test="ordersSummoney != null" >
+        orders_sumMoney = #{ordersSummoney,jdbcType=DECIMAL},
+      </if>
+      <if test="ordersState != null" >
+        orders_state = #{ordersState,jdbcType=INTEGER},
+      </if>
+      <if test="isva != null" >
+        isva = #{isva,jdbcType=INTEGER},
+      </if>
+      <if test="optime != null" >
+        optime = #{optime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oper != null" >
+        oper = #{oper,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="proId != null" >
+        pro_id = #{proId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where orders_id = #{ordersId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yidu.order.entity.YiduOrders" >
+    update yidu_orders
+    set user_id = #{userId,jdbcType=VARCHAR},
+      address_id = #{addressId,jdbcType=VARCHAR},
+      orders_code = #{ordersCode,jdbcType=VARCHAR},
+      orders_number = #{ordersNumber,jdbcType=INTEGER},
+      orders_date = #{ordersDate,jdbcType=VARCHAR},
+      orders_sumMoney = #{ordersSummoney,jdbcType=DECIMAL},
+      orders_state = #{ordersState,jdbcType=INTEGER},
+      isva = #{isva,jdbcType=INTEGER},
+      optime = #{optime,jdbcType=TIMESTAMP},
+      oper = #{oper,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      pro_id = #{proId,jdbcType=VARCHAR}
+    where orders_id = #{ordersId,jdbcType=VARCHAR}
+  </update>
+</mapper>
