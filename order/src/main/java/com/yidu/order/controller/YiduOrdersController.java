@@ -25,7 +25,7 @@ public class YiduOrdersController {
         return yiduOrdersService.findById(id);
     }
 
-    @ApiOperation("根据订单ID获取商品订单详情")
+    @ApiOperation("增加订单接口")
     @RequestMapping(method = RequestMethod.POST,value = "/order")
     public boolean addOrders(@RequestBody YiduOrders orders) {
         return yiduOrdersService.addOrders(orders);

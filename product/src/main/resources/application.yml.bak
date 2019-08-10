@@ -11,7 +11,7 @@ spring:
     password: 123
     driver-class-name: com.mysql.jdbc.Driver
   application:
-    name: yidu_product_microService #微服务名字
+    name: yidu-product-microService #微服务名字
 
 mybatis:
   mapper-locations: classpath:config/mapping/*.xml
@@ -21,7 +21,14 @@ eureka:
     register-with-eureka: true #是否将自己注册到Eureka服务中，默认为true
     fetch-registry: true #是否从Eureka中获取注册信息，默认为true
     service-url:
-      defaultZone: http://localhost:8099/eureka #Eureka客户端与Eureka服务端进行交互的地址,**注意defaultZone没有提示,需要手动加上**
+      defaultZone: http://yidu:yidu123@localhost:8099/eureka,http://yidu:yidu123@localhost:8098/eureka #Eureka客户端与Eureka服务端进行交互的地址,**注意defaultZone没有提示,需要手动加上**
+
+
   instance:
     prefer-ip-address: true #将自己的ip地址注册到Eureka服务中,也就是说路径可以显示ip
     instance-id: product-info # 服务名字
+    # 默认90秒
+    lease-expiration-duration-in-seconds: 10
+    # 默认30秒
+    lease-renewal-interval-in-seconds: 3
+

@@ -1,0 +1,20 @@
+server:
+  port: 6677 #服务端口
+spring:
+  application:
+    name: yidu-microservice-api-gateway #指定服务名
+
+# 路由规则
+zuul:
+  routes:
+    #product-service: #product-service这个名字是自己取的
+    #  path: /product/** #配置请求URL的请求规则
+      #url: http://127.0.0.1:8080/yidu/product #真正的微服务地址
+    #  serviceId: yidu-product-microService #指定Eureka注册中心中的服务id
+    yidu-product-microService: /product/**
+eureka:
+  client:
+    register-with-eureka: true #是否将自己注册到Eureka服务中，默认为true
+    fetch-registry: true #是否从Eureka中获取注册信息，默认为true
+    service-url:
+      defaultZone: http://yidu:yidu123@127.0.0.1:8099/eureka/

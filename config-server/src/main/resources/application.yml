@@ -1,0 +1,12 @@
+server:
+  port: 6868
+spring:
+  application:
+    name: yidu-microservice-config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/liandyao/yidu-microservice.git # 复制github的地址
+          username: li060708@163.com # github的用户名
+          password: 06070815LIli # github的密码

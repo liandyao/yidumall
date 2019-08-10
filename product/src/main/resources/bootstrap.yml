@@ -1,0 +1,7 @@
+spring:
+  cloud:
+    config:
+      name: yidu-product #对应的配置服务中的application名
+      uri: http://127.0.0.1:6868 #对应配置服务地址
+      profile: dev #对应配置服务中的{profile}
+      label: master # 对应的分支
