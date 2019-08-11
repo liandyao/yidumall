@@ -5,3 +5,13 @@ spring:
       uri: http://127.0.0.1:6868 #对应配置服务地址
       profile: dev #对应配置服务中的{profile}
       label: master # 对应的分支
+  rabbitmq:
+    host: 127.0.0.1
+    port: 15672
+    username: guest
+    password: guest
+management:  # 手动刷新配置
+  endpoints:
+    web:
+      exposure:
+        include: refresh

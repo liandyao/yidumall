@@ -20,6 +20,9 @@ public class YiduProductController {
     @Resource
     YiduProductService yiduProductService;
 
+    @Resource
+    YmlConfigBean ymlConfigBean ;
+
     /**
      * 查询所有的商品信息
      * 依据Rest风格规则,路径中不要使用动词.例如/products,不要写成getProducts
@@ -79,6 +82,13 @@ public class YiduProductController {
         return yiduProductService.updateByPrimaryKey(yiduProduct)>0;
     }
 
-
+    /**
+     * 获取git的config信息
+     * @return
+     */
+    @RequestMapping(method = RequestMethod.GET,value = "/getYml")
+    public String getConifg(){
+        return ymlConfigBean.toString();
+    }
 
 }
