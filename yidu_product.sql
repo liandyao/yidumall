@@ -242,7 +242,7 @@ CREATE TABLE `yidu_users` (
   `users_type` int(11) DEFAULT NULL COMMENT '用户类型',
   `business_name` varchar(100) DEFAULT NULL COMMENT '商家名称',
   `full_name` varchar(100) DEFAULT NULL COMMENT '用户姓名',
-  `users_cardId` varchar(100) DEFAULT NULL COMMENT '用户省份证',
+  `users_cardId` varchar(100) DEFAULT NULL COMMENT '用户身份证',
   `isva` int(11) DEFAULT NULL COMMENT '是否有效',
   `optime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '操作时间',
   `oper` varchar(100) DEFAULT NULL COMMENT '操作人',
